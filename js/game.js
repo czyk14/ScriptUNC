@@ -373,5 +373,42 @@ function update() {
     $("#cbX").text("block X: " + cursor.bX);
     $("#cbY").text("block Y: " + cursor.bY);
 }
+
+$.get('js/text_files/start.txt', function(results){
+    $("#consoleText").empty();
+    $("#consoleText").html(results);
+});
+
+$("#consolePrompt").on("click", function(){
+     $("#consoleText").empty();
+     $.get(getNextScript(), function(results){
+         $("#consoleText").html(results);
+     });   
+});
+
+var scripts = [], scriptIndex = 0, numberOfFiles = 4;
+
+function getNextScript() {
+    var nextScript;   
+    if(scriptIndex < numberOfFiles){
+        //nextScript = scripts[scriptIndex];
+        // JSON.stringify(nextScript);
+        nextScript = 'js/text_files/'+scriptIndex+".txt";
+        scriptIndex++;
+        return nextScript;
+    }
+    else if(scriptIndex>numberOfFiles){
+        $("#consoleText").empty();
+        nextScript = "js/text_files/start.txt";
+        scriptIndex = 0;
+        return nextScript;
+    }
     
+    else{
+        $("#consoleText").empty();
+        nextScript = "js/text_files/end.txt";
+        scriptIndex = numberOfFiles * 2;
+        return nextScript;
+    }
+}
     
