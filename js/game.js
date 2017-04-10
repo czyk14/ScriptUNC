@@ -452,7 +452,7 @@ var initFunc = function(interpreter, scope) {
   interpreter.setProperty(scope, 'alert',
       interpreter.createNativeFunction(alrt));
     
-  var name = function(){ return  interpreter.createPrimitive(rameses.name)};
+  var name = function(){ return interpreter.createPrimitive(rameses.name)};
   
   interpreter.setProperty(scope, 'rameses',
       interpreter.createPrimitive(rameses));
