@@ -454,6 +454,8 @@ var initFunc = function(interpreter, scope) {
   
   interpreter.setProperty(scope, 'rameses',
       interpreter.createPrimitive(rameses));
+  interpreter.setProperty(scope, 'rameses.name',
+      interpreter.createPrimitive(rameses.name));
        
   var move = function(x,y) {
       x = x ? x.toString() : '';
@@ -461,7 +463,7 @@ var initFunc = function(interpreter, scope) {
     return interpreter.createPrimitive(rameses.move(x,y));
   };
     
-  interpreter.setProperty(scope, 'move', 
+  interpreter.setProperty(scope, 'rameses.move', 
       interpreter.createNativeFunction(move));
 };
 
