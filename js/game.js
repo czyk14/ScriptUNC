@@ -382,7 +382,7 @@ $.get('js/text_files/start.txt', function(results){
 
 $("#consoleLog").on("DOMSubtreeModified", function(){
     if ($("#consoleLog").html == ""){
-//         $("#consoleLog").hide();
+        $("#consoleLog").hide();
         return;
     }
     $("#consoleLog").show();
@@ -507,6 +507,7 @@ $("#next").on("click", function(){
          document.getElementById("run").className = "disabled";
 //          document.getElementById("next").disabled = true;
 //          document.getElementById("next").className = "disabled";
+         $("#consoleLog").html("");
      });   
 });
 
