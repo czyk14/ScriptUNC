@@ -405,14 +405,16 @@ pre {
 }
 
 #consoleText {
-    width: 57.75%;
+    float: left;
+    width: 58%;
     height: 100%;
     line-height: 1.25;
-    padding-left: 7.25%;
+    padding-left: 7%;
     overflow: auto;
 }
 
 #consoleLog{
+    float:right;
     width: 32.5%;
     height: 95%;
     padding-right: 2.5%;
