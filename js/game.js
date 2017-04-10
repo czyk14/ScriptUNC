@@ -436,26 +436,34 @@ $("#parse").on("click", function(){
     }
 });
 
+
+
+
 var initFunc = function(interpreter, scope) {
+    
   interpreter.setProperty(scope, 'url',
       interpreter.createPrimitive(location.toString()));
-
-  var wrapper = function(text) {
+    
+  var alrt = function(text) {
     text = text ? text.toString() : '';
     return interpreter.createPrimitive(alert(text));
   };
-
-    
+  
   interpreter.setProperty(scope, 'alert',
-      interpreter.createNativeFunction(wrapper));
+      interpreter.createNativeFunction(alrt));
    
   var move = function(x,y) {
+      x = x ? x.toString() : '';
+      y = y ? y.toString() : '';
     return interpreter.createPrimitive(rameses.move(x,y));
   };
     
   interpreter.setProperty(scope, 'rameses.move', 
-      interpreter.createPrimitive(move));
+      interpreter.createNativeFunction(move));
 };
+
+
+
 
 $("#step").on("click", function(){
     nextStep();
