@@ -404,7 +404,7 @@ pre {
     color: grey;
 }
 
-#console #consoleText {
+#consoleText {
     float: left;
     width: 60%;
     height: 100%;
@@ -430,5 +430,9 @@ pre {
     font-family: "Lucida Console";
     color: rgba(0,0,0, .85);
     text-shadow: -1px 1px grey;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
 }
 
