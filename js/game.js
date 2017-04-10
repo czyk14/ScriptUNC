@@ -380,7 +380,8 @@ $.get('js/text_files/start.txt', function(results){
     $("#consoleText").html(results);
 });
 
-$("#consoleLog").on("DOMSubtreeModified", function(){
+$("#consoleLog").on("DOMSubtreeModified", function(e){
+    alert(e);
     if ($("#consoleLog").html == ""){
         $("#consoleLog").hide();
         return;
@@ -437,7 +438,7 @@ $("#parse").on("click", function(){
         document.getElementById("step").disabled = false;
         document.getElementById("step").className = "";
         document.getElementById("run").disabled = false;
-        document.getElementById("run").className = "";   
+        document.getElementById("run").className = ""; 
     }
 
     else{
