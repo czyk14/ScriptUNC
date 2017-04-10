@@ -451,14 +451,21 @@ var initFunc = function(interpreter, scope) {
   
   interpreter.setProperty(scope, 'alert',
       interpreter.createNativeFunction(alrt));
-   
+        
+  var rms = function(){
+      return rameses;
+  };
+  
+  interpreter.setProperty(scope, 'rameses',
+      interpreter.createNativeFunction(rms));
+       
   var move = function(x,y) {
       x = x ? x.toString() : '';
       y = y ? y.toString() : '';
     return interpreter.createPrimitive(rameses.move(x,y));
   };
     
-  interpreter.setProperty(scope, 'rameses.move', 
+  interpreter.setProperty(scope, 'move', 
       interpreter.createNativeFunction(move));
 };
 
