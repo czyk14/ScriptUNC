@@ -420,8 +420,7 @@ pre {
     height: 95%;
     margin-right: 2.5%;
     margin-left:70%;
-    overflow-y: scroll;
-    overflow-x: initial;
+    display: inline-block;
     border: solid;
     border-radius: 25px;
     border-width: thin;
