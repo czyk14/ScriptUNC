@@ -452,10 +452,10 @@ var initFunc = function(interpreter, scope) {
   interpreter.setProperty(scope, 'alert',
       interpreter.createNativeFunction(alrt));
         
-  var rms = { return rameses };
+  var rms = rameses;
   
   interpreter.setProperty(scope, 'rameses',
-      interpreter.createPrimative(rms));
+      interpreter.createElement(rms));
        
   var move = function(x,y) {
       x = x ? x.toString() : '';
