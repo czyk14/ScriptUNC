@@ -415,10 +415,9 @@ pre {
 
 #console #consoleLog{
     float: right;
+    top: -35%;
     width: 30%;
     height: 95%;
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
     margin-right: 2.5%;
     overflow-y: scroll;
     overflow-x: initial;
