@@ -437,21 +437,13 @@ var console;
 
 $("#parse").on("click", function(){
     var code = document.getElementById("consoleText").textContent;
-//     $.get("js/text_files/rameses.txt", function(results){
-//         code = results + code;
-//     });
-        
     console = new Interpreter(code, initFunc);
-    alert(console);
+    
     if(console){
         document.getElementById("step").disabled = false;
         document.getElementById("step").className = "";
         document.getElementById("run").disabled = false;
-        document.getElementById("run").className = ""; 
-    }
-
-    else{
-        alert("Error found during parse! Check your code and try again!");
+        document.getElementById("run").className = "";
     }
 });
 
