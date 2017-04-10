@@ -460,13 +460,11 @@ var initFunc = function(interpreter, scope) {
       interpreter.createNativeFunction(nm));
        
   var move = function(x,y) {
-      x = x ? x.toString() : '';
-      y = y ? y.toString() : '';
     return interpreter.createPrimitive(rameses.move(x,y));
   };
     
   interpreter.setProperty(scope, 'rameses.move', 
-      interpreter.createNativeFunction(move));
+      interpreter.initGlobalScope(move));
 };
 
 
