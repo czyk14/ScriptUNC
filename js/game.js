@@ -382,7 +382,7 @@ $.get('js/text_files/start.txt', function(results){
 
 $("#consoleLog").on("DOMSubtreeModified", function(e){
     alert(e);
-    if ($("#consoleLog").html == ""){
+    if ($("#consoleLog").html() == ""){
         $("#consoleLog").hide();
         return;
     }
