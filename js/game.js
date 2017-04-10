@@ -380,13 +380,13 @@ $.get('js/text_files/start.txt', function(results){
     $("#consoleText").html(results);
 });
 
-$("#consoleLog").on("DOMSubtreeModified", function(e){
-    alert(e);
+$("#consoleLog").on("DOMSubtreeModified", function(){
     if ($("#consoleLog").html() == ""){
         $("#consoleLog").hide();
-        return;
     }
+    else{     
     $("#consoleLog").show();
+    }
 });
 
 $("#consoleText").on("DOMSubtreeModified", function(){
