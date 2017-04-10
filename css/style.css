@@ -413,8 +413,8 @@ pre {
 }
 
 #consoleLog{
-    float: left;
-    width: 35%;
+    float: right;
+    width: 32.5%;
     height: 100%;
     padding-right: 2.5%;
     overflow-y: scroll;
