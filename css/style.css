@@ -413,7 +413,6 @@ pre {
 }
 
 #consoleLog{
-    float: right;
     width: 32.5%;
     height: 95%;
     padding-right: 2.5%;
@@ -427,6 +426,5 @@ pre {
     font-family: "Lucida Console";
     color: rgba(0,0,0, .85);
     text-shadow: -1px 1px grey;
-    position: absolute;
 }
 
