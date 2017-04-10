@@ -456,15 +456,16 @@ var initFunc = function(interpreter, scope) {
   
   interpreter.setProperty(scope, 'rameses',
       interpreter.createPrimitive(rameses));
+    
   interpreter.setProperty(scope, 'rameses.name',
-      interpreter.initGlobalScope(name));
+      interpreter.createAsyncFunction(name));
        
   var move = function(x,y) {
     return interpreter.createPrimitive(rameses.move(x,y));
   };
     
   interpreter.setProperty(scope, 'rameses.move', 
-      interpreter.initGlobalScope(move));
+      interpreter.createAsyncFunction(move));
 };
 
 
