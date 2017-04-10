@@ -404,7 +404,7 @@ pre {
     color: grey;
 }
 
-#consoleText {
+#console #consoleText {
     float: left;
     width: 60%;
     height: 100%;
@@ -413,7 +413,7 @@ pre {
     overflow: auto;
 }
 
-#consoleLog{
+#console #consoleLog{
     float: right;
     width: 30%;
     height: 95%;
