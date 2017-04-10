@@ -413,8 +413,9 @@ pre {
     overflow: auto;
 }
 
-#console #consoleLog{
+#consoleLog{
     float: right;
+    position: absolute;
     top: -35%;
     width: 30%;
     height: 95%;
