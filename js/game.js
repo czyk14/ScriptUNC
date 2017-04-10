@@ -504,12 +504,12 @@ $("#next").on("click", function(){
 
 var former = console.log;
 
-console.log = function(msg){
+consoleLog = function(msg){
     former(msg);  //maintains existing logging via the console.
     $("#consoleLog").html(msg);
 }
 
 window.onerror = function(message, url, linenumber) {
-    console.log("JavaScript error: " + message + " on line " + 
+    consoleLog("JavaScript error: " + message + " on line " + 
             linenumber + " for " + url);
 }
