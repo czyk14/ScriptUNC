@@ -389,6 +389,15 @@ $("#consoleLog").on("DOMSubtreeModified", function(){
     }
 });
 
+$("#consoleSucess").on("DOMSubtreeModified", function(){
+    if ($("#consoleSucess").html() == ""){
+        $("#consoleSucess").hide();
+    }
+    else{     
+    $("#consoleSucess").show();
+    }
+});
+
 $("#consoleText").on("DOMSubtreeModified", function(){
     
         document.getElementById("step").disabled = true;
@@ -493,7 +502,7 @@ function nextStep() {
 
 $("#run").on("click", function(){
     console.run();
-    //alert(console.value);
+    $("#consoleSucess").html(console.value);
 //     document.getElementById("next").disabled = false;
 //     document.getElementById("next").className = "";
 });
@@ -509,6 +518,8 @@ $("#next").on("click", function(){
 //          document.getElementById("next").disabled = true;
 //          document.getElementById("next").className = "disabled";
          $("#consoleLog").html("");
+         $("#consoleSucess").html("");
+         
      });   
 });
 
