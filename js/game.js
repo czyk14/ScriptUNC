@@ -453,7 +453,7 @@ var initFunc = function(interpreter, scope) {
       interpreter.createNativeFunction(alrt));
   
   interpreter.setProperty(scope, 'rameses',
-      interpreter.createPrimative(rameses));
+      interpreter.createPrimitive(rameses));
        
   var move = function(x,y) {
       x = x ? x.toString() : '';
