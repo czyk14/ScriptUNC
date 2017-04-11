@@ -518,7 +518,6 @@ consoleLog = function(msg){
 }
 
 window.onerror = function(message, url, linenumber) {
-//     consoleLog("JavaScript error: " + message + " on line " + 
-//             linenumber + " for " + url);
-    consoleLog("Santax-Error discovered while parsing your code! Please check for errors and try again!");
+    consoleLog("JavaScript error: " + message + " on line " + linenumber + " for " + url);
+//     consoleLog("Santax-Error discovered while parsing your code! Please check for errors and try again!");
 }
