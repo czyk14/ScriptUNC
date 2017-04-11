@@ -379,9 +379,7 @@ $(document).ready(function(){
         $("#consoleText").empty();
         $("#consoleText").html(results);
     });
-    
-    $("#consoleLog").show();
-//     $("#consoleLog").hide();
+    $("#consoleLog").hide();
 });
 
 
@@ -484,24 +482,21 @@ $("#run").on("click", function(){
     console.run();
 //     document.getElementById("next").disabled = false;
 //     document.getElementById("next").className = "";
-    $("#consoleLog").classname = "consoleSucess";
-    $("#consoleLog").html("The results of your code are as follows:<br>"+console.value.toString());
-    $("#consoleLog").show();
 });
 
 $("#next").on("click", function(){
-     $("#consoleText").empty();
-     $("#consoleLog").empty();
-     $("#consoleLog").className = "";
-     $.get(getNextScript(), function(results){
-         $("#consoleText").html(results);
-         document.getElementById("step").disabled = true;
-         document.getElementById("step").className = "disabled";
-         document.getElementById("run").disabled = true;
-         document.getElementById("run").className = "disabled";
-//          document.getElementById("next").disabled = true;
-//          document.getElementById("next").className = "disabled";      
-     });   
+    $("#consoleText").empty();
+    $("#consoleLog").empty();
+    $("#consoleLog").hide();
+    $.get(getNextScript(), function(results){
+     $("#consoleText").html(results);
+     document.getElementById("step").disabled = true;
+     document.getElementById("step").className = "disabled";
+     document.getElementById("run").disabled = true;
+     document.getElementById("run").className = "disabled";
+    //          document.getElementById("next").disabled = true;
+    //          document.getElementById("next").className = "disabled";      
+    });   
 });
 
 
@@ -509,12 +504,11 @@ var former = console.log;
 
 consoleLog = function(msg){
     former(msg);  //maintains existing logging via the console.
+    $("#consoleLog").show();
     $("#consoleLog").html(msg);
 }
 
 window.onerror = function(message, url, linenumber) {
     consoleLog("JavaScript error: " + message + " on line " + 
             linenumber + " for " + url);
-    $("#consoleLog").className = "";
-    $("#consoleLog").show();
 }
