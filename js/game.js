@@ -379,7 +379,6 @@ $(document).ready(function(){
         $("#consoleText").empty();
         $("#consoleText").html(results);
     });
-    $("#consoleLog").hide();
 });
 
 
@@ -421,7 +420,6 @@ function getNextScript() {
 var console;
 
 $("#parse").on("click", function(){
-    $("#consoleLog").hide();
     $("#consoleLog").empty();
     var code = document.getElementById("consoleText").textContent;
     console = new Interpreter(code, initFunc);   
@@ -487,7 +485,6 @@ $("#run").on("click", function(){
 $("#next").on("click", function(){
     $("#consoleText").empty();
     $("#consoleLog").empty();
-    $("#consoleLog").hide();
     $.get(getNextScript(), function(results){
      $("#consoleText").html(results);
      document.getElementById("step").disabled = true;
@@ -504,7 +501,6 @@ var former = console.log;
 
 consoleLog = function(msg){
     former(msg);  //maintains existing logging via the console.
-    $("#consoleLog").show();
     $("#consoleLog").html(msg);
 }
 
