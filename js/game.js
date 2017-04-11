@@ -200,10 +200,6 @@ $("#submit").click(function() {
     console.log.apply(this, alert("yo") );
 })
 
-
-
-
-
 // Center Rameses on screen on startup
 center(rameses);
 var followRam = true;
@@ -384,18 +380,38 @@ $(document).ready(function(){
 
 
 $("#consoleText").on("DOMSubtreeModified", function(){
-    
-        document.getElementById("step").disabled = true;
-        document.getElementById("step").className = "disabled";
-        document.getElementById("run").disabled = true;
-        document.getElementById("run").className = "disabled";
-//         document.getElementById("next").disabled = true;
-//         document.getElementById("next").className = "disabled"; 
-    
+        document.getElementById("next").disabled = true;
+        document.getElementById("next").className = "disabled";  
 });
 
-var scriptIndex = 0, numberOfFiles = 4;
+$("#run").on("click", function(){
+    $("#err").empty();
+    $("#consoleErr").hide();
+    var code = "var fn = function(){" + document.getElementById("consoleText").textContent + "}";
+    acorn.parse(code);
+    var result = eval(code);
+    alert(result);
+    $("#err").html("The result of the code you ran is:\n" +result);
+    $("#consoleErr").classname = "sucess";
+    $("#consoleErr").show();
+    document.getElementById("next").disabled = false;
+    document.getElementById("next").className = "";
+});
 
+$("#next").on("click", function(){
+    $("#consoleText").empty();
+    $("#err").empty();
+    $("#consoleErr").hide();
+    $.get(getNextScript(), function(results){
+        $("#consoleText").html(results);
+        document.getElementById("next").disabled = true;
+        document.getElementById("next").className = "disabled";      
+    });   
+});
+
+
+var scriptIndex = 0, numberOfFiles = 4;
+//gets next text file in line
 function getNextScript() {
     var nextScript;   
     if(scriptIndex < numberOfFiles){
@@ -408,8 +424,7 @@ function getNextScript() {
         nextScript = "js/text_files/start.txt";
         scriptIndex = 0;
         return nextScript;
-    }
-    
+    }    
     else{
         $("#consoleText").empty();
         nextScript = "js/text_files/end.txt";
@@ -418,101 +433,16 @@ function getNextScript() {
     }
 }
 
-var console;
-
-$("#parse").on("click", function(){
-    $("#err").empty();
-    $("#consoleErr").hide();
-    var code = "var fn = function(){" + document.getElementById("consoleText").textContent + "}";
-    console = new Interpreter(code, initFunc);   
-    if(console){
-        document.getElementById("step").disabled = false;
-        document.getElementById("step").className = "";
-        document.getElementById("run").disabled = false;
-        document.getElementById("run").className = "";
-    }
-});
-
-var initFunc = function(interpreter, scope) {
-    
-  interpreter.setProperty(scope, 'url',
-      interpreter.createPrimitive(location.toString()));
-    
-  var alrt = function(text) {
-    text = text ? text.toString() : '';
-    return interpreter.createPrimitive(alert(text));
-  };
-  
-  interpreter.setProperty(scope, 'alert',
-      interpreter.createNativeFunction(alrt));
-    
-  var name = function(){ return interpreter.createPrimitive(rameses.name)};
-  
-  interpreter.setProperty(scope, 'rameses',
-      interpreter.createPrimitive(rameses));
-    
-  interpreter.setProperty(scope, 'rameses.name',
-      interpreter.createAsyncFunction(name));
-       
-  var move = function(x,y) {
-    return interpreter.createPrimitive(rameses.move(x,y));
-  };
-    
-  interpreter.setProperty(scope, 'rameses.move', 
-      interpreter.createAsyncFunction(move));
-};
-
-
-$("#step").on("click", function(){
-    nextStep();
-});
-
-function nextStep() {
-    if (console.step()) {
-        window.setTimeout(nextStep, 0);
-    }
-}
-
-$("#run").on("click", function(){
-//    console.run();
-    var result = eval(document.getElementById("consoleText").textContent);
-    alert(result);
-    $("#err").html(result);
-    $("#err").show();
-//     document.getElementById("next").disabled = false;
-//     document.getElementById("next").className = "";
-});
-
-$("#next").on("click", function(){
-    $("#consoleText").empty();
-    $("#err").empty();
-    $("#consoleErr").hide();
-    $.get(getNextScript(), function(results){
-     $("#consoleText").html(results);
-     document.getElementById("step").disabled = true;
-     document.getElementById("step").className = "disabled";
-     document.getElementById("run").disabled = true;
-     document.getElementById("run").className = "disabled";
-    //          document.getElementById("next").disabled = true;
-    //          document.getElementById("next").className = "disabled";      
-    });   
-});
-
-
-
+// prints console errors to the #consoleErr div
 var former = console.log;
 consoleLog = function(msg){    
     former(msg);  //maintains existing logging via the console.
     $("#err").html(msg);
+    $("#consoleErr").className = "";
     $("#consoleErr").show();
 }
-
-window.onerror = function(message, url, linenumber) {
-    
-    if(url == "https://czyk14.github.io/ScriptUNC/"){
-        url = "the console."
-    }
-    
+// prints console errors to the #consoleErr div
+window.onerror = function(message, url, linenumber) {  
+    if(url == "https://czyk14.github.io/ScriptUNC/"){ url = "the console." }
     consoleLog("JavaScript error: " + message + " on line " + linenumber + " in " + url);
-//     consoleLog("Santax-Error discovered while parsing your code! Please check for errors and try again!");
 }
