@@ -379,6 +379,7 @@ $(document).ready(function(){
         $("#consoleText").empty();
         $("#consoleText").html(results);
     });
+    $("consoleLog").hide();
 });
 
 
@@ -482,13 +483,14 @@ $("#run").on("click", function(){
 //     document.getElementById("next").disabled = false;
 //     document.getElementById("next").className = "";
     $("#consoleLog").classname = "consoleSucess";
-    $("#consoleLog").html(console.value);
+    $("#consoleLog").html("The results of your code are as follows:<br>"+console.value);
     $("consoleLog").show();
 });
 
 $("#next").on("click", function(){
      $("#consoleText").empty();
-    $("consoleLog").empty();
+     $("consoleLog").empty();
+     $("consoleLog").className = "";
      $.get(getNextScript(), function(results){
          $("#consoleText").html(results);
          document.getElementById("step").disabled = true;
