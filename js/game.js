@@ -460,17 +460,7 @@ var initFunc = function(interpreter, scope) {
     
   interpreter.setProperty(scope, 'rameses.move', 
       interpreter.createAsyncFunction(move));
-  
-  var rtn = function(obj){
-      return interpreter.createPrimitive(obj);
-  }
-    
-  interpreter.setProperty(scope, 'return', 
-      interpreter.createNativeFunction(rtn));
-    
 };
-
-
 
 
 $("#step").on("click", function(){
