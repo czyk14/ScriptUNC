@@ -418,6 +418,8 @@ function getNextScript() {
 var console;
 
 $("#parse").on("click", function(){
+    $("#consoleLog").html("");
+    $("#consoleSucess").html("");
     $("#consoleLog").hide();
     $("#consoleSucess").hide();
     var code = document.getElementById("consoleText").textContent;
@@ -479,8 +481,8 @@ $("#run").on("click", function(){
     console.run();
 //     document.getElementById("next").disabled = false;
 //     document.getElementById("next").className = "";
-    $("#consoleSucess").html(console.value);
     $("#consoleSucess").show();
+    $("#consoleSucess").html(console.value);
 });
 
 $("#next").on("click", function(){
@@ -493,6 +495,8 @@ $("#next").on("click", function(){
          document.getElementById("run").className = "disabled";
 //          document.getElementById("next").disabled = true;
 //          document.getElementById("next").className = "disabled";
+         $("#consoleLog").html("");
+         $("#consoleSucess").html("");
          $("#consoleLog").hide();
          $("#consoleSucess").hide();
          
@@ -504,13 +508,12 @@ var former = console.log;
 
 consoleLog = function(msg){
     former(msg);  //maintains existing logging via the console.
+    $("#consoleSucess").hide();
+    $("#consoleLog").show();
     $("#consoleLog").html(msg);
 }
 
 window.onerror = function(message, url, linenumber) {
-   
     consoleLog("JavaScript error: " + message + " on line " + 
             linenumber + " for " + url);
-     $("#consoleSucess").hide();
-    $("#consoleLog").show();
 }
