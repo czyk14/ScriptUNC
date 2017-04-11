@@ -423,6 +423,7 @@ pre {
     margin-left:70%;
     overflow-x: initial;
     overflow-y: auto;
+    overflow:visible;
     border: solid;
     border-radius: 25px;
     border-width: thin;
@@ -434,8 +435,11 @@ pre {
 }
 
 #errTitle{
-    font-weight:bold;
-    top:-100%;
+    position: absolute;
+    font-weight: bold;
+    top: -100%;
+    margin-left: 7.5%;
+    font-size: 125%;
 }
 
 ::-webkit-scrollbar { 
