@@ -419,10 +419,12 @@ pre {
     top: -100%;
     width: 45%;
     height: 95%;
+    padding-left:2.5%;
     margin-right: 2.5%;
     margin-left: 55%;
     overflow-x: initial;
     overflow-y: auto;
+    overflow: visible;
     border: solid;
     border-radius: 25px;
     border-width: thin;
