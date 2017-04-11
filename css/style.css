@@ -431,22 +431,10 @@ pre {
     text-shadow: -1px 1px grey;
 }
 
-#consoleSucess{
-    position: absolute;
-    top: -107%;
-    width: 30%;
-    height: 95%;
-    margin-right: 2.5%;
-    margin-left:70%;
-    display: inline-block;
-    border: solid;
-    border-radius: 25px;
-    border-width: thin;
+.consoleSucess{
     border-color: rgb(0,0,255);
     background-color: rgba(255,255,255,.85);
-    font-family: "Lucida Console";
     color: rgb(0,0,255);
-    text-shadow: -1px 1px grey;
 }
 
 ::-webkit-scrollbar { 
