@@ -423,7 +423,7 @@ var console;
 $("#parse").on("click", function(){
     $("#err").empty();
     $("#consoleErr").hide();
-    var code = document.getElementById("consoleText").textContent;
+    var code = "var fn = function(){" + document.getElementById("consoleText").textContent + "}";
     console = new Interpreter(code, initFunc);   
     if(console){
         document.getElementById("step").disabled = false;
