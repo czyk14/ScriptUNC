@@ -418,10 +418,10 @@ function getNextScript() {
 var console;
 
 $("#parse").on("click", function(){
-    var code = document.getElementById("consoleText").textContent;
-    console = new Interpreter(code, initFunc);
     $("#consoleLog").hide();
-    
+    $("#consoleSucess").hide();
+    var code = document.getElementById("consoleText").textContent;
+    console = new Interpreter(code, initFunc);   
     if(console){
         document.getElementById("step").disabled = false;
         document.getElementById("step").className = "";
@@ -505,10 +505,12 @@ var former = console.log;
 consoleLog = function(msg){
     former(msg);  //maintains existing logging via the console.
     $("#consoleLog").html(msg);
-    $("#consoleLog").show();
 }
 
 window.onerror = function(message, url, linenumber) {
+   
     consoleLog("JavaScript error: " + message + " on line " + 
             linenumber + " for " + url);
+     $("#consoleSucess").hide();
+    $("#consoleLog").show();
 }
