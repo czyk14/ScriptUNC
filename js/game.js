@@ -379,7 +379,7 @@ $(document).ready(function(){
         $("#consoleText").empty();
         $("#consoleText").html(results);
     });
-    $("#consoleLog").hide();
+    $("#consoleErr").hide();
 });
 
 
@@ -422,7 +422,7 @@ var console;
 
 $("#parse").on("click", function(){
     $("#consoleErr").empty();
-    $("#consoleLog").hide();
+    $("#consoleErr").hide();
     var code = document.getElementById("consoleText").textContent;
     console = new Interpreter(code, initFunc);   
     if(console){
@@ -487,7 +487,7 @@ $("#run").on("click", function(){
 $("#next").on("click", function(){
     $("#consoleText").empty();
     $("#consoleErr").empty();
-    $("#consoleLog").hide();
+    $("#consoleErr").hide();
     $.get(getNextScript(), function(results){
      $("#consoleText").html(results);
      document.getElementById("step").disabled = true;
@@ -505,7 +505,7 @@ var former = console.log;
 consoleLog = function(msg){
     former(msg);  //maintains existing logging via the console.
     $("#consoleErr").html(msg);
-    $("#consoleLog").show();
+    $("#consoleErr").show();
 }
 
 window.onerror = function(message, url, linenumber) {
