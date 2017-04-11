@@ -504,7 +504,7 @@ var former = console.log;
 
 consoleLog = function(msg){
     former(msg);  //maintains existing logging via the console.
-    $("#consoleErr").html(msg);
+    $("#err").html(msg);
     $("#consoleErr").show();
 }
 
