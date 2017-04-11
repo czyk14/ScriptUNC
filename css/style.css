@@ -417,13 +417,12 @@ pre {
 #consoleErr{
     position: absolute;
     top: -100%;
-    width: 30%;
+    width: 45%;
     height: 95%;
     margin-right: 2.5%;
-    margin-left:70%;
+    margin-left: 55%;
     overflow-x: initial;
     overflow-y: auto;
-    overflow:visible;
     border: solid;
     border-radius: 25px;
     border-width: thin;
