@@ -9,4 +9,4 @@ function fibonacci(n, output) {<br>
 &emsp;&emsp;&emsp;&emsp;}<br>
 &emsp;&emsp;}<br>
 fibonacci(16, result);<br>
-alert(result.join(', '));<br>
+alert(result.join(', '));&emsp;&emsp;<br>
