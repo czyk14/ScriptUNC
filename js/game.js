@@ -484,7 +484,7 @@ $("#run").on("click", function(){
 //     document.getElementById("next").disabled = false;
 //     document.getElementById("next").className = "";
     $("#consoleSucess").show();
-    $("#consoleSucess").html(console.value);
+    $("#consoleSucess").html(console.value.toString());
 });
 
 $("#next").on("click", function(){
