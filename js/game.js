@@ -502,9 +502,8 @@ $("#next").on("click", function(){
 
 
 
-
-consoleLog = function(msg){
-    var former = console.log;
+var former = console.log;
+consoleLog = function(msg){    
     former(msg);  //maintains existing logging via the console.
     $("#err").html(msg);
     $("#consoleErr").show();
