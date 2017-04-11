@@ -460,9 +460,6 @@ var initFunc = function(interpreter, scope) {
     
   interpreter.setProperty(scope, 'rameses.move', 
       interpreter.createAsyncFunction(move));
-    
-  interpreter.setProperty(scope, 'return', 
-      interpreter.createPrimitve(return));
 };
 
 
@@ -481,6 +478,7 @@ function nextStep() {
 $("#run").on("click", function(){
 //    console.run();
     var result = eval(document.getElementById("consoleText").textContent);
+    alert(result);
     $("#err").html(result);
     $("#err").show();
 //     document.getElementById("next").disabled = false;
@@ -503,9 +501,10 @@ $("#next").on("click", function(){
 });
 
 
-var former = console.log;
+
 
 consoleLog = function(msg){
+    var former = console.log;
     former(msg);  //maintains existing logging via the console.
     $("#err").html(msg);
     $("#consoleErr").show();
