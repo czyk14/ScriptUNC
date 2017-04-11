@@ -413,7 +413,7 @@ pre {
     overflow: auto;
 }
 
-#consoleLog{
+#consoleErr{
     position: absolute;
     top: -107%;
     width: 30%;
@@ -431,12 +431,6 @@ pre {
     font-family: "Lucida Console";
     color: rgb(255,0,0);
     text-shadow: -1px 1px grey;
-}
-
-.consoleSucess{
-    border-color: rgb(0,0,255);
-    background-color: rgba(255,255,255,.85);
-    color: rgb(0,0,255);
 }
 
 ::-webkit-scrollbar { 
