@@ -379,7 +379,9 @@ $(document).ready(function(){
         $("#consoleText").empty();
         $("#consoleText").html(results);
     });
-    $("consoleLog").hide();
+    
+    $("consoleLog").show();
+//     $("consoleLog").hide();
 });
 
 
