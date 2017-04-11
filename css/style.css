@@ -366,7 +366,7 @@ pre {
     font-size: 15px;
     font-family: sans-serif;
     text-align: center;
-    padding: 5px 0;
+    margin-left:2.5%;
     text-shadow: 0 0 5px black;
     font-family: 'Josefin Slab', sans-serif; 
 } 
@@ -423,7 +423,6 @@ pre {
     margin-left: 55%;
     overflow-x: initial;
     overflow-y: auto;
-    overflow: visible;
     border: solid;
     border-radius: 25px;
     border-width: thin;
@@ -443,7 +442,6 @@ pre {
     margin-left: 5%;
     width: 95%;
     height: 95%;
-    
 }
 
 
