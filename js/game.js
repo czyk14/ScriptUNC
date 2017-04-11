@@ -380,8 +380,8 @@ $(document).ready(function(){
         $("#consoleText").html(results);
     });
     
-    $("consoleLog").show();
-//     $("consoleLog").hide();
+    $("#consoleLog").show();
+//     $("#consoleLog").hide();
 });
 
 
@@ -423,8 +423,8 @@ function getNextScript() {
 var console;
 
 $("#parse").on("click", function(){
-    $("consoleLog").hide();
-    $("consoleLog").empty();
+    $("#consoleLog").hide();
+    $("#consoleLog").empty();
     var code = document.getElementById("consoleText").textContent;
     console = new Interpreter(code, initFunc);   
     if(console){
@@ -486,13 +486,13 @@ $("#run").on("click", function(){
 //     document.getElementById("next").className = "";
     $("#consoleLog").classname = "consoleSucess";
     $("#consoleLog").html("The results of your code are as follows:<br>"+console.value);
-    $("consoleLog").show();
+    $("#consoleLog").show();
 });
 
 $("#next").on("click", function(){
      $("#consoleText").empty();
-     $("consoleLog").empty();
-     $("consoleLog").className = "";
+     $("#consoleLog").empty();
+     $("#consoleLog").className = "";
      $.get(getNextScript(), function(results){
          $("#consoleText").html(results);
          document.getElementById("step").disabled = true;
