@@ -420,7 +420,7 @@ function getNextScript() {
 var console;
 
 $("#parse").on("click", function(){
-    $("#consoleLog").empty();
+    $("#consoleErr").empty();
     var code = document.getElementById("consoleText").textContent;
     console = new Interpreter(code, initFunc);   
     if(console){
@@ -484,7 +484,7 @@ $("#run").on("click", function(){
 
 $("#next").on("click", function(){
     $("#consoleText").empty();
-    $("#consoleLog").empty();
+    $("#consoleErr").empty();
     $.get(getNextScript(), function(results){
      $("#consoleText").html(results);
      document.getElementById("step").disabled = true;
@@ -501,7 +501,7 @@ var former = console.log;
 
 consoleLog = function(msg){
     former(msg);  //maintains existing logging via the console.
-    $("#consoleLog").html(msg);
+    $("#consoleErr").html(msg);
 }
 
 window.onerror = function(message, url, linenumber) {
