@@ -420,6 +420,8 @@ function getNextScript() {
 var console;
 
 $("#parse").on("click", function(){
+    $("consoleLog").hide();
+    $("consoleLog").empty();
     var code = document.getElementById("consoleText").textContent;
     console = new Interpreter(code, initFunc);   
     if(console){
@@ -479,10 +481,14 @@ $("#run").on("click", function(){
     console.run();
 //     document.getElementById("next").disabled = false;
 //     document.getElementById("next").className = "";
+    $("#consoleLog").classname = "consoleSucess";
+    $("#consoleLog").html(console.value);
+    $("consoleLog").show();
 });
 
 $("#next").on("click", function(){
      $("#consoleText").empty();
+    $("consoleLog").empty();
      $.get(getNextScript(), function(results){
          $("#consoleText").html(results);
          document.getElementById("step").disabled = true;
@@ -505,4 +511,6 @@ consoleLog = function(msg){
 window.onerror = function(message, url, linenumber) {
     consoleLog("JavaScript error: " + message + " on line " + 
             linenumber + " for " + url);
+    $("#consoleLog").className = "";
+    $("#consoleLog").show();
 }
