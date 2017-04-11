@@ -520,7 +520,7 @@ consoleLog = function(msg){
 window.onerror = function(message, url, linenumber) {
     
     if(url == "https://czyk14.github.io/ScriptUNC/"){
-        url = "the console"
+        url = "the console."
     }
     
     consoleLog("JavaScript error: " + message + " on line " + linenumber + " in " + url);
