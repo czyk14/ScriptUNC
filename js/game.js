@@ -462,7 +462,7 @@ var initFunc = function(interpreter, scope) {
       interpreter.createAsyncFunction(move));
   
   var rtn = function(obj){
-      return interpreter.createPrimitive(return obj);
+      return interpreter.createPrimitive(obj);
   }
     
   interpreter.setProperty(scope, 'return', 
