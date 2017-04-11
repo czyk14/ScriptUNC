@@ -477,8 +477,9 @@ function nextStep() {
 
 $("#run").on("click", function(){
 //    console.run();
-    var result = eval($("#consoleText").textContent);
+    var result = eval($("#consoleText").html());
     $("#err").html(result);
+    $("#err").show();
 //     document.getElementById("next").disabled = false;
 //     document.getElementById("next").className = "";
 });
