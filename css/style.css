@@ -441,6 +441,7 @@ pre {
     margin-left: 7.5%;
     font-size: 125%;
     text-shadow: -1px 1px white, -1px -1px white;
+    visibility: hidden;
 }
 
 ::-webkit-scrollbar { 
