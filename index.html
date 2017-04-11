@@ -11,7 +11,6 @@
 
     </head>
     <body>
-        <!--<div id="banner"></div>-->
         <div id="debug" class="gui">
             <p>Debug Mode</p>
             <p class="cat">rameses object</p>
@@ -39,10 +38,8 @@
                    
         <div id="console">
             <div id = "button">
-                <button id="parse">Parse</button>
-                <button id="step" class="disabled" disabled>Step</button>
-                <button id="run" class="disabled" disabled>Run Code</button>
-                <button id="next">Next Lesson</button>
+                <button id="run">Run Code</button>
+                <button id="next" class = "disabled" disabled >Next Lesson</button>
             </div>
             <p id = "consoleText" contenteditable = "true"></p>
             <div id = "consoleErr">
@@ -50,32 +47,7 @@
                 <p id = "err"></p>
             </div>
         </div>
-        <!--
-        <div id="welcome" class="gui">
-            <img src="img/georam.png">
-            <h1>Welcome to ScriptUNC!</h1>
-            <p>To start playing, open the JavaScript console from your browser's inspector and type:</p>
-            <p class="code">$("#welcome").hide()</p>
-        </div>
-        <div id="buttons_tip" class="tooltip gui">
-            <h1>Buttons!</h1>
-            <p>Theses buttons are completely programmable. Try:</p>
-            <pre class="code">$("#b").click(function() { 
-     rameses.move(1); 
-})</pre>
-        </div>
-        <div id="rameses_tip" class="tooltip gui">
-            <h1>Rameses!</h1>
-            <p>Rameses is an object and can be moved with:</p>
-            <pre class="code">rameses.move(deltaX, deltaY);</pre>
-        </div>
-        <div id="tip_tip" class="tooltip gui">
-            <h1>Tooltips!</h1>
-            <p>Theses boxes contain helpful information to get you started. to hide or show them try the following:</p>
-            <pre class="code">$(".tooltip").hide();
-$(".tooltip").show();</pre>
-        </div>
-        -->
+        
         <div id="game_wrap">
             <div id="stage1">
                 
