@@ -485,7 +485,7 @@ $("#run").on("click", function(){
 //     document.getElementById("next").disabled = false;
 //     document.getElementById("next").className = "";
     $("#consoleLog").classname = "consoleSucess";
-    $("#consoleLog").html("The results of your code are as follows:<br>"+console.value);
+    $("#consoleLog").html("The results of your code are as follows:<br>"+console.value.toString());
     $("#consoleLog").show();
 });
 
