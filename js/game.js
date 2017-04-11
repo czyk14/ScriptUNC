@@ -376,6 +376,8 @@ $(document).ready(function(){
         $("#consoleText").html(results);
     });
     $("#consoleErr").hide();
+    $("#next").className = "";
+    $("#next").disabled = false;
 });
 
 
