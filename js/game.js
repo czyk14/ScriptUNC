@@ -380,24 +380,6 @@ $.get('js/text_files/start.txt', function(results){
     $("#consoleText").html(results);
 });
 
-$("#consoleLog").on("DOMSubtreeModified", function(){
-    if ($("#consoleLog").html() == ""){
-        $("#consoleLog").hide();
-    }
-    else{     
-    $("#consoleLog").show();
-    }
-});
-
-$("#consoleSucess").on("DOMSubtreeModified", function(){
-    if ($("#consoleSucess").html() == ""){
-        $("#consoleSucess").hide();
-    }
-    else{     
-    $("#consoleSucess").show();
-    }
-});
-
 $("#consoleText").on("DOMSubtreeModified", function(){
     
         document.getElementById("step").disabled = true;
@@ -438,6 +420,7 @@ var console;
 $("#parse").on("click", function(){
     var code = document.getElementById("consoleText").textContent;
     console = new Interpreter(code, initFunc);
+    $("#consoleLog").hide();
     
     if(console){
         document.getElementById("step").disabled = false;
@@ -494,9 +477,10 @@ function nextStep() {
 
 $("#run").on("click", function(){
     console.run();
-    $("#consoleSucess").html(console.value);
 //     document.getElementById("next").disabled = false;
 //     document.getElementById("next").className = "";
+    $("#consoleSucess").html(console.value);
+    $("#consoleSucess").show();
 });
 
 $("#next").on("click", function(){
@@ -509,8 +493,8 @@ $("#next").on("click", function(){
          document.getElementById("run").className = "disabled";
 //          document.getElementById("next").disabled = true;
 //          document.getElementById("next").className = "disabled";
-         $("#consoleLog").html("");
-         $("#consoleSucess").html("");
+         $("#consoleLog").hide();
+         $("#consoleSucess").hide();
          
      });   
 });
@@ -521,6 +505,7 @@ var former = console.log;
 consoleLog = function(msg){
     former(msg);  //maintains existing logging via the console.
     $("#consoleLog").html(msg);
+    $("#consoleLog").show();
 }
 
 window.onerror = function(message, url, linenumber) {
