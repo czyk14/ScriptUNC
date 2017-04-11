@@ -518,6 +518,11 @@ consoleLog = function(msg){
 }
 
 window.onerror = function(message, url, linenumber) {
+    
+    if(url == "https://czyk14.github.io/ScriptUNC/"){
+        url = "in the console"
+    }
+    
     consoleLog("JavaScript error: " + message + " on line " + linenumber + " for " + url);
 //     consoleLog("Santax-Error discovered while parsing your code! Please check for errors and try again!");
 }
