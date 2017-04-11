@@ -418,7 +418,7 @@ function getNextScript() {
     }
 }
 
-var console;
+// var console;
 
 $("#parse").on("click", function(){
     $("#err").empty();
@@ -433,37 +433,34 @@ $("#parse").on("click", function(){
     }
 });
 
-
-
-
-var initFunc = function(interpreter, scope) {
+// var initFunc = function(interpreter, scope) {
     
-  interpreter.setProperty(scope, 'url',
-      interpreter.createPrimitive(location.toString()));
+//   interpreter.setProperty(scope, 'url',
+//       interpreter.createPrimitive(location.toString()));
     
-  var alrt = function(text) {
-    text = text ? text.toString() : '';
-    return interpreter.createPrimitive(alert(text));
-  };
+//   var alrt = function(text) {
+//     text = text ? text.toString() : '';
+//     return interpreter.createPrimitive(alert(text));
+//   };
   
-  interpreter.setProperty(scope, 'alert',
-      interpreter.createNativeFunction(alrt));
+//   interpreter.setProperty(scope, 'alert',
+//       interpreter.createNativeFunction(alrt));
     
-  var name = function(){ return interpreter.createPrimitive(rameses.name)};
+//   var name = function(){ return interpreter.createPrimitive(rameses.name)};
   
-  interpreter.setProperty(scope, 'rameses',
-      interpreter.createPrimitive(rameses));
+//   interpreter.setProperty(scope, 'rameses',
+//       interpreter.createPrimitive(rameses));
     
-  interpreter.setProperty(scope, 'rameses.name',
-      interpreter.createAsyncFunction(name));
+//   interpreter.setProperty(scope, 'rameses.name',
+//       interpreter.createAsyncFunction(name));
        
-  var move = function(x,y) {
-    return interpreter.createPrimitive(rameses.move(x,y));
-  };
+//   var move = function(x,y) {
+//     return interpreter.createPrimitive(rameses.move(x,y));
+//   };
     
-  interpreter.setProperty(scope, 'rameses.move', 
-      interpreter.createAsyncFunction(move));
-};
+//   interpreter.setProperty(scope, 'rameses.move', 
+//       interpreter.createAsyncFunction(move));
+// };
 
 
 
@@ -479,7 +476,9 @@ function nextStep() {
 }
 
 $("#run").on("click", function(){
-    console.run();
+//    console.run();
+    var result = eval($("#consoleText").textContent);
+    $("#err").html(result);
 //     document.getElementById("next").disabled = false;
 //     document.getElementById("next").className = "";
 });
