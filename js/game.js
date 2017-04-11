@@ -477,7 +477,7 @@ function nextStep() {
 
 $("#run").on("click", function(){
 //    console.run();
-    var result = eval($("#consoleText").html());
+    var result = eval(document.getElementById("consoleText").textContent);
     $("#err").html(result);
     $("#err").show();
 //     document.getElementById("next").disabled = false;
