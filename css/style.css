@@ -437,9 +437,10 @@ pre {
 #errTitle{
     position: absolute;
     font-weight: bold;
-    top: -100%;
+    top: -15%;
     margin-left: 7.5%;
     font-size: 125%;
+    text-shadow: -1px 1px white;
 }
 
 ::-webkit-scrollbar { 
