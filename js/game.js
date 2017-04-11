@@ -460,6 +460,9 @@ var initFunc = function(interpreter, scope) {
     
   interpreter.setProperty(scope, 'rameses.move', 
       interpreter.createAsyncFunction(move));
+    
+  interpreter.setProperty(scope, 'return', 
+      interpreter.createPrimitve(return));
 };
 
 
