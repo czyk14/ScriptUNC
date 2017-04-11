@@ -374,11 +374,13 @@ function update() {
     $("#cbY").text("block Y: " + cursor.bY);       
 }
 
-
-$.get('js/text_files/start.txt', function(results){
-    $("#consoleText").empty();
-    $("#consoleText").html(results);
+$(document).ready(function(){
+    $.get('js/text_files/start.txt', function(results){
+        $("#consoleText").empty();
+        $("#consoleText").html(results);
+    });
 });
+
 
 $("#consoleText").on("DOMSubtreeModified", function(){
     
