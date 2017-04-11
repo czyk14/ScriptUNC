@@ -421,7 +421,7 @@ function getNextScript() {
 var console;
 
 $("#parse").on("click", function(){
-    $("#consoleErr").empty();
+    $("#err").empty();
     $("#consoleErr").hide();
     var code = document.getElementById("consoleText").textContent;
     console = new Interpreter(code, initFunc);   
@@ -486,7 +486,7 @@ $("#run").on("click", function(){
 
 $("#next").on("click", function(){
     $("#consoleText").empty();
-    $("#consoleErr").empty();
+    $("#err").empty();
     $("#consoleErr").hide();
     $.get(getNextScript(), function(results){
      $("#consoleText").html(results);
