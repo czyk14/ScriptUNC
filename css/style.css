@@ -433,6 +433,11 @@ pre {
     text-shadow: -1px 1px grey;
 }
 
+#errTitle{
+    font-weight:bold;
+    top:-100%;
+}
+
 ::-webkit-scrollbar { 
     display: none; 
 
